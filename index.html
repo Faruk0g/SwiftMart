@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SwiftMart — Shop everything, arrive faster</title>
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/home.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="wrap header-row">
+        <a href="index.html" class="logo"
+          >Swift<span class="dot">Mart</span></a
+        >
+
+        <form class="search-form js-search-form" role="search">
+          <select aria-label="Search category" class="js-category-select">
+            <option value="All">All</option>
+            <option value="Electronics">Electronics</option>
+            <option value="Home & Kitchen">Home &amp; Kitchen</option>
+            <option value="Fashion">Fashion</option>
+            <option value="Beauty">Beauty</option>
+            <option value="Sports & Outdoors">Sports &amp; Outdoors</option>
+            <option value="Books">Books</option>
+            <option value="Toys">Toys</option>
+          </select>
+          <input
+            type="text"
+            placeholder="Search SwiftMart"
+            aria-label="Search products"
+            class="js-search-input"
+          />
+          <button type="submit" aria-label="Search">🔍</button>
+        </form>
+
+        <nav class="header-actions">
+          <a href="orders.html" class="pill-link">Orders</a>
+          <a href="checkout.html" class="cart-pill">
+            🛒 Cart <span class="cart-count js-cart-count">0</span>
+          </a>
+        </nav>
+      </div>
+    </header>
+
+    <section class="hero-strip">
+      <div class="wrap">
+        <div>
+          <span class="hero-badge">Free next-day delivery over $35</span>
+          <h1>Everything you need, packed and on its way today.</h1>
+          <p>Track every order in real time, from warehouse to doorstep.</p>
+        </div>
+        <a href="#grid" class="btn btn-amber">Shop today's deals</a>
+      </div>
+    </section>
+
+    <main class="wrap">
+      <nav class="chip-row js-chip-row" aria-label="Categories">
+        <a class="chip is-active" data-category="All">All</a>
+        <a class="chip" data-category="Electronics">Electronics</a>
+        <a class="chip" data-category="Home & Kitchen">Home &amp; Kitchen</a>
+        <a class="chip" data-category="Fashion">Fashion</a>
+        <a class="chip" data-category="Beauty">Beauty</a>
+        <a class="chip" data-category="Sports & Outdoors"
+          >Sports &amp; Outdoors</a
+        >
+        <a class="chip" data-category="Books">Books</a>
+        <a class="chip" data-category="Toys">Toys</a>
+      </nav>
+
+      <div class="section-heading" id="grid">
+        <h2>Recommended for you</h2>
+        <span
+          class="text-muted js-results-count"
+          style="font-size: 0.82rem"
+        ></span>
+      </div>
+
+      <div class="product-grid js-products-grid"></div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap">
+        <div class="logo">Swift<span class="dot">Mart</span></div>
+        <p>© 2026 SwiftMart. Built as a static front-end demo.</p>
+      </div>
+    </footer>
+
+    <script type="module" src="script/swiftmart.js"></script>
+    <script type="module" src="script/interactions.js"></script>
+  </body>
+</html>

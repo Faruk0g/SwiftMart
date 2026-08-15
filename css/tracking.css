@@ -1,0 +1,124 @@
+/* =========================================================
+   SwiftMart — tracking.css
+   ========================================================= */
+
+.tracking-main {
+  padding-bottom: 64px;
+  max-width: 780px;
+  margin-inline: auto;
+}
+
+.tracking-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--brand-600);
+  margin: 24px 0 16px;
+}
+.tracking-back:hover {
+  text-decoration: underline;
+}
+
+.tracking-card {
+  padding: 28px;
+}
+
+.tracking-top {
+  display: grid;
+  grid-template-columns: 1fr 120px;
+  gap: 20px;
+  align-items: start;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--border);
+}
+.tracking-eta {
+  font-family: var(--font-mono);
+  color: var(--green-600);
+  font-weight: 600;
+  font-size: 0.82rem;
+  margin-bottom: 6px;
+}
+.tracking-title {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 700;
+  max-width: 40ch;
+  margin-bottom: 8px;
+}
+.tracking-sub {
+  font-size: 0.84rem;
+  color: var(--ink-500);
+}
+.tracking-thumb {
+  width: 120px;
+  height: 120px;
+  border-radius: var(--r-md);
+  overflow: hidden;
+  background: var(--paper-100);
+}
+.tracking-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.tracking-progress {
+  padding: 32px 8px 8px;
+}
+.tracking-progress .route-step {
+  padding-inline: 4px;
+}
+
+.tracking-meta-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 28px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+}
+.tracking-meta-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.tracking-meta-item .meta-label {
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--ink-500);
+}
+.tracking-meta-item .meta-value {
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+.tracking-meta-item .meta-value.mono {
+  font-family: var(--font-mono);
+}
+
+.carrier-note {
+  margin-top: 20px;
+  padding: 14px 16px;
+  border-radius: var(--r-sm);
+  background: var(--green-50);
+  border: 1px solid #bbf7d0;
+  color: #14532d;
+  font-size: 0.84rem;
+}
+
+@media (max-width: 560px) {
+  .tracking-top {
+    grid-template-columns: 1fr;
+  }
+  .tracking-thumb {
+    width: 100%;
+    height: 180px;
+    order: -1;
+  }
+  .tracking-meta-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}

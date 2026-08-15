@@ -1,0 +1,298 @@
+/* =========================================================
+   SwiftMart — home.css
+   ========================================================= */
+
+.hero-strip {
+  background: linear-gradient(120deg, var(--ink-900) 0%, #16213e 100%);
+  color: #fff;
+  padding-block: 28px;
+}
+.hero-strip .wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+.hero-strip h1 {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 2.4vw, 2.1rem);
+  font-weight: 700;
+  max-width: 26ch;
+}
+.hero-strip p {
+  color: rgba(255, 255, 255, 0.65);
+  margin-top: 6px;
+  font-size: 0.9rem;
+}
+.hero-badge {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  color: var(--amber-500);
+  text-transform: uppercase;
+  margin-bottom: 6px;
+  display: block;
+}
+
+.chip-row {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  padding: 18px 0;
+  scrollbar-width: none;
+}
+.chip-row::-webkit-scrollbar {
+  display: none;
+}
+.chip {
+  flex-shrink: 0;
+  padding: 9px 18px;
+  border-radius: var(--r-pill);
+  background: #fff;
+  border: 1px solid var(--border);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--ink-700);
+  cursor: pointer;
+  user-select: none;
+  transition:
+    border-color 0.15s ease,
+    color 0.15s ease,
+    background 0.15s ease;
+}
+.chip.is-active,
+.chip:hover {
+  border-color: var(--brand-600);
+  color: var(--brand-600);
+}
+.chip.is-active {
+  background: var(--brand-50);
+}
+
+/* ---- Interactive states driven by script/interactions.js ---- */
+.product-card.is-hidden {
+  display: none;
+}
+
+.no-results {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 64px 20px;
+  color: var(--ink-500);
+}
+.no-results strong {
+  display: block;
+  color: var(--ink-900);
+  font-size: 1rem;
+  margin-bottom: 4px;
+}
+
+.add-btn.is-added {
+  animation: addPulse 0.25s ease;
+}
+@keyframes addPulse {
+  0% {
+    transform: scale(1);
+  }
+  40% {
+    transform: scale(0.94);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.section-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin: 8px 0 18px;
+}
+.section-heading h2 {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+/* ---- Product grid ---- */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 18px;
+  padding-bottom: 56px;
+}
+
+@media (max-width: 1180px) {
+  .product-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+@media (max-width: 860px) {
+  .product-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (max-width: 640px) {
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+}
+
+.product-card {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  overflow: hidden;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+}
+.product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--ink-300);
+}
+
+.card-media {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  background: var(--paper-100);
+}
+.card-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.35s ease;
+}
+.product-card:hover .card-media img {
+  transform: scale(1.06);
+}
+
+.card-badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: var(--green-600);
+  color: #fff;
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  padding: 4px 8px;
+  border-radius: var(--r-sm);
+  text-transform: uppercase;
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 14px 14px 16px;
+  gap: 8px;
+}
+
+.card-name {
+  font-size: 0.88rem;
+  font-weight: 600;
+  line-height: 1.35;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  min-height: 2.7em;
+}
+
+.card-rating {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.78rem;
+}
+.stars {
+  color: var(--amber-500);
+  letter-spacing: 1px;
+  font-size: 0.85rem;
+}
+.rating-count {
+  color: var(--ink-500);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+}
+
+.card-price {
+  font-family: var(--font-mono);
+  font-weight: 600;
+  font-size: 1.15rem;
+  color: var(--ink-900);
+}
+.card-price sup {
+  font-size: 0.6em;
+  font-weight: 500;
+  margin-left: 1px;
+}
+.card-price .was {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: var(--ink-500);
+  text-decoration: line-through;
+  margin-left: 6px;
+}
+
+.card-footer {
+  margin-top: auto;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  padding-top: 6px;
+}
+
+.qty-select {
+  height: 40px;
+  border-radius: var(--r-sm);
+  border: 1px solid var(--border);
+  background: var(--paper-50);
+  padding-inline: 8px;
+  font-size: 0.82rem;
+  font-family: var(--font-mono);
+  color: var(--ink-900);
+  flex-shrink: 0;
+}
+
+.add-btn {
+  flex: 1;
+  height: 40px;
+  border-radius: var(--r-sm);
+  background: var(--brand-600);
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.82rem;
+  transition: background 0.15s ease;
+  position: relative;
+  overflow: hidden;
+}
+.add-btn:hover {
+  background: var(--brand-700);
+}
+
+/* Static "Added" feedback state — demonstrated on one card */
+.add-btn.is-added {
+  background: var(--green-600);
+}
+.add-btn .btn-label-default {
+  display: inline;
+}
+.add-btn.is-added .btn-label-default {
+  display: none;
+}
+.add-btn .btn-label-added {
+  display: none;
+}
+.add-btn.is-added .btn-label-added {
+  display: inline;
+}

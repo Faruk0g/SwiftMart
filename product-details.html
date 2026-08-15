@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product — SwiftMart</title>
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/home.css" />
+    <style>
+      /* Page-specific layout only — inherits colors/type/buttons from base.css & home.css */
+      .pdp-breadcrumb {
+        font-size: 0.82rem;
+        color: var(--text-muted, #6b7280);
+        margin: 18px 0 20px;
+      }
+      .pdp-breadcrumb a {
+        color: inherit;
+        text-decoration: none;
+      }
+      .pdp-breadcrumb a:hover {
+        text-decoration: underline;
+      }
+      .pdp-breadcrumb .sep {
+        margin: 0 6px;
+        opacity: 0.6;
+      }
+      .pdp-layout {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+        gap: 40px;
+        align-items: start;
+      }
+      @media (max-width: 860px) {
+        .pdp-layout {
+          grid-template-columns: 1fr;
+          gap: 24px;
+        }
+        .pdp-media {
+          position: static;
+          padding: 16px;
+        }
+        .pdp-media img {
+          max-height: 300px;
+        }
+        .pdp-title {
+          font-size: 1.25rem;
+        }
+        .pdp-price {
+          font-size: 1.6rem;
+        }
+        .pdp-related-grid {
+          grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+          gap: 12px;
+        }
+      }
+      @media (max-width: 420px) {
+        .pdp-related-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .pdp-purchase-card {
+          padding: 14px;
+        }
+      }
+      .pdp-media {
+        border: 1px solid var(--border, #e4e4e7);
+        border-radius: 12px;
+        padding: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #fff;
+        position: sticky;
+        top: 16px;
+      }
+      .pdp-media img {
+        max-width: 100%;
+        max-height: 420px;
+        object-fit: contain;
+      }
+      .pdp-category-badge {
+        display: inline-block;
+        font-size: 0.72rem;
+        font-weight: 600;
+        letter-spacing: 0.02em;
+        text-transform: uppercase;
+        color: #b5560f;
+        background: #fdf1e2;
+        border: 1px solid #f3d8ae;
+        border-radius: 999px;
+        padding: 3px 10px;
+        margin-bottom: 10px;
+      }
+      .pdp-title {
+        font-size: 1.5rem;
+        line-height: 1.3;
+        margin: 0 0 10px;
+      }
+      .pdp-rating-row {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 14px;
+        font-size: 0.92rem;
+      }
+      .pdp-rating-row .stars {
+        color: #d97a1f;
+        letter-spacing: 1px;
+      }
+      .pdp-rating-row .rating-count {
+        color: var(--text-muted, #6b7280);
+      }
+      .pdp-divider {
+        border: none;
+        border-top: 1px solid var(--border, #e4e4e7);
+        margin: 18px 0;
+      }
+      .pdp-price {
+        font-size: 2rem;
+        font-weight: 700;
+        margin: 0 0 4px;
+      }
+      .pdp-price-note {
+        font-size: 0.85rem;
+        color: var(--text-muted, #6b7280);
+        margin: 0 0 18px;
+      }
+      .pdp-delivery-row {
+        display: flex;
+        gap: 10px;
+        align-items: flex-start;
+        font-size: 0.92rem;
+        margin-bottom: 18px;
+      }
+      .pdp-delivery-row strong {
+        color: #1a7f37;
+      }
+      .pdp-purchase-card {
+        border: 1px solid var(--border, #e4e4e7);
+        border-radius: 12px;
+        padding: 18px;
+        margin-top: 18px;
+      }
+      .pdp-qty-row {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 14px;
+      }
+      .pdp-qty-row select {
+        padding: 6px 10px;
+        border-radius: 8px;
+        border: 1px solid var(--border, #e4e4e7);
+        font-size: 0.92rem;
+      }
+      .pdp-in-stock {
+        color: #1a7f37;
+        font-weight: 600;
+        font-size: 0.92rem;
+        margin-bottom: 14px;
+      }
+      .pdp-add-btn {
+        width: 100%;
+        position: relative;
+      }
+      .pdp-add-btn .pdp-btn-added {
+        display: none;
+      }
+      .pdp-add-btn.is-added .pdp-btn-added {
+        display: inline;
+      }
+      .pdp-add-btn.is-added .pdp-btn-default {
+        display: none;
+      }
+      .pdp-section-title {
+        font-size: 1.1rem;
+        margin: 34px 0 12px;
+      }
+      .pdp-bullets {
+        margin: 0;
+        padding-left: 20px;
+        line-height: 1.7;
+        color: #2c2d31;
+      }
+      .pdp-description {
+        line-height: 1.7;
+        color: #2c2d31;
+      }
+      .pdp-related-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+        gap: 16px;
+        margin-bottom: 40px;
+      }
+      .pdp-related-card {
+        display: block;
+        border: 1px solid var(--border, #e4e4e7);
+        border-radius: 10px;
+        padding: 12px;
+        text-decoration: none;
+        color: inherit;
+        transition:
+          box-shadow 0.15s ease,
+          transform 0.15s ease;
+      }
+      .pdp-related-card:hover {
+        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+        transform: translateY(-2px);
+      }
+      .pdp-related-card img {
+        width: 100%;
+        aspect-ratio: 1 / 1;
+        object-fit: cover;
+        border-radius: 6px;
+        margin-bottom: 8px;
+      }
+      .pdp-related-name {
+        font-size: 0.85rem;
+        line-height: 1.35;
+        margin: 0 0 4px;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+      .pdp-related-price {
+        font-weight: 700;
+        font-size: 0.92rem;
+      }
+      .pdp-not-found {
+        text-align: center;
+        padding: 60px 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="wrap header-row">
+        <a href="index.html" class="logo">Swift<span class="dot">Mart</span></a>
+        <form class="search-form" role="search" onsubmit="return false;">
+          <select aria-label="Search category">
+            <option>All</option>
+          </select>
+          <input
+            type="text"
+            placeholder="Search SwiftMart"
+            aria-label="Search products"
+          />
+          <button type="submit" aria-label="Search">🔍</button>
+        </form>
+        <nav class="header-actions">
+          <a href="orders.html" class="pill-link">Orders</a>
+          <a href="checkout.html" class="cart-pill">
+            🛒 Cart <span class="cart-count js-cart-count">0</span>
+          </a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="wrap js-pdp-root">
+      <!-- Filled in by product-details.js -->
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap">
+        <div class="logo">Swift<span class="dot">Mart</span></div>
+        <p>© 2026 SwiftMart. Built as a static front-end demo.</p>
+      </div>
+    </footer>
+
+    <script type="module" src="script/product-details.js"></script>
+  </body>
+</html>

@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Track Package — SwiftMart</title>
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/tracking.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="wrap header-row">
+        <a href="index.html" class="logo">Swift<span class="dot">Mart</span></a>
+        <form class="search-form" role="search" onsubmit="return false;">
+          <select aria-label="Search category">
+            <option>All</option>
+          </select>
+          <input
+            type="text"
+            placeholder="Search SwiftMart"
+            aria-label="Search products"
+          />
+          <button type="submit" aria-label="Search">🔍</button>
+        </form>
+        <nav class="header-actions">
+          <a href="orders.html" class="pill-link">Orders</a>
+          <a href="checkout.html" class="cart-pill"
+            >🛒 Cart <span class="cart-count js-cart-count">0</span></a
+          >
+        </nav>
+      </div>
+    </header>
+
+    <main class="wrap tracking-main js-tracking-root">
+      <!-- Filled in by script/tracking.js -->
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap">
+        <div class="logo">Swift<span class="dot">Mart</span></div>
+        <p>© 2026 SwiftMart. Built as a static front-end demo.</p>
+      </div>
+    </footer>
+
+    <script type="module" src="script/tracking.js"></script>
+  </body>
+</html>

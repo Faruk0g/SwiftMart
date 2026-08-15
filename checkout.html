@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Checkout — SwiftMart</title>
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/checkout.css" />
+  </head>
+  <body>
+    <header class="site-header checkout-header">
+      <div class="wrap">
+        <a href="index.html" class="logo">Swift<span class="dot">Mart</span></a>
+        <div class="checkout-progress">
+          <ol class="route">
+            <li class="route-step is-done">
+              <span class="route-dot"></span><span class="route-line"></span
+              ><span class="route-label">Cart</span>
+            </li>
+            <li class="route-step is-current">
+              <span class="route-dot"></span><span class="route-line"></span
+              ><span class="route-label">Checkout</span>
+            </li>
+            <li class="route-step">
+              <span class="route-dot"></span><span class="route-line"></span
+              ><span class="route-label">Placed</span>
+            </li>
+          </ol>
+          <span
+            class="eyebrow js-checkout-item-count"
+            style="margin-left: 14px"
+          ></span>
+        </div>
+      </div>
+    </header>
+
+    <main class="wrap">
+      <h1 class="checkout-title">Review your order</h1>
+
+      <div class="checkout-layout">
+        <section
+          class="review-col js-cart-summary"
+          aria-label="Items in order"
+        ></section>
+
+        <aside class="summary-card surface" aria-label="Order summary">
+          <h2>Order Summary</h2>
+          <div class="summary-row">
+            <span class="js-summary-items-label">Items (0):</span
+            ><span class="val js-summary-items-value">$0.00</span>
+          </div>
+          <div class="summary-row">
+            <span>Shipping &amp; handling:</span
+            ><span class="val js-summary-shipping-value">$0.00</span>
+          </div>
+          <div class="summary-row">
+            <span>Estimated tax (10%):</span
+            ><span class="val js-summary-tax-value">$0.00</span>
+          </div>
+          <div class="summary-total">
+            <span>Order total:</span
+            ><span class="val js-summary-total-value">$0.00</span>
+          </div>
+          <a
+            href="orders.html"
+            class="btn btn-amber btn-block js-place-order-btn"
+            >Place your order</a
+          >
+          <p class="summary-note">
+            By placing your order, you agree to SwiftMart's terms and privacy
+            notice.
+          </p>
+        </aside>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap">
+        <div class="logo">Swift<span class="dot">Mart</span></div>
+        <p>© 2026 SwiftMart. Built as a static front-end demo.</p>
+      </div>
+    </footer>
+
+    <script type="module" src="script/checkout.js"></script>
+  </body>
+</html>
